@@ -1,3 +1,4 @@
+const PORT =process.env.PORT || 3000 ;
 const path = require("path");
 //const http = require("http");
 const express = require("express");
@@ -5,13 +6,14 @@ const express = require("express");
 const formatMessage = require("./utils/messages");
 const {userJoin,getCurrentUser,userLeave,getRoomUsers } = require("./utils/users");
 
+const app = express();
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http)
 
 
 
-const app = express();
+
 //const server = http.createServer(app);
 //const io = socketio(server);
 
@@ -64,7 +66,7 @@ io.on("connect", (socket) => {
     
   });
 });
-// const PORT =process.env.PORT || 3000 ;
+
 // server.listen(PORT, () => console.log(`Server running on Port ${PORT}`));
 
 
